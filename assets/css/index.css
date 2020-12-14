@@ -9,21 +9,26 @@ body {
     height: 720px;
 }
 
-#placedBtn {
-    z-index: 1000;
-}
-
 #coOrds {
     z-index: 100;
     color: blue;
     font-size: 100px;
 }
 
-#container {
-    z-index: 1000;
-}
-
 #instructions {
     color: white;
     font-size: 30px;
+}
+
+#container {
+    position: relative;
+}
+
+#container canvas,
+#commands {
+    position: absolute;
+}
+
+canvas {
+    border: 1px solid black;
 }
