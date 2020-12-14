@@ -1,4 +1,4 @@
-function LoadImage(url) {
+function LoadImage(url, name) {
     const stage = new Konva.Stage({
         container: 'container',
         width: window.innerWidth,
@@ -32,7 +32,8 @@ function LoadImage(url) {
     function updateText(e) {
         text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
         layer.batchDraw();
-        document.getElementById("moveCommand").innerText = "!move NAME " + e.target.x() + " " + e.target.y();
+        document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
+        document.getElementById("imgCommand").innerText = "!image " + url + " " + name + " ";
     }
 
     function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
@@ -40,7 +41,7 @@ function LoadImage(url) {
         text2.text('s = ' + scale);
         layer.batchDraw();
 
-        document.getElementById("scaleCommand").innerText = "!scale NAME " + scale;
+        document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
     }
 
     // function to calculate crop values from source image, its visible size and a crop strategy
@@ -173,8 +174,6 @@ function LoadImage(url) {
     //uploadedImg.on('dragmove', updateText);
 }
 
-window.addEventListener('load', function() {
-    document.querySelector('input[type="text"]').addEventListener('change', function() {
-        LoadImage(document.getElementById("url").value);
-    });
-});
+function submissionMade() {
+    LoadImage(document.getElementById("url").value, document.getElementById("name").value);
+}
