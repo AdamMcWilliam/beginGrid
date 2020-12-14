@@ -1,4 +1,4 @@
-function LoadImage(url, name) {
+function LoadImage(url, name, files) {
     const stage = new Konva.Stage({
         container: 'container',
         width: window.innerWidth,
@@ -132,7 +132,7 @@ function LoadImage(url, name) {
 
     };
     uploadImg.crossOrigin = 'Anoymous';
-    uploadImg.src = url;
+    uploadImg.src = URL.createObjectURL(files);
 
     var uploadedImg = Konva.Image.fromURL(
         //'750a5371-bbbb-4351-82f1-1e345da9b7c8.png',
@@ -187,3 +187,11 @@ function LoadImage(url, name) {
 function submissionMade() {
     LoadImage(document.getElementById("url").value, document.getElementById("name").value);
 }
+
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0]);
+        }
+    });
+});
