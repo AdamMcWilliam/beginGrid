@@ -127,17 +127,26 @@ function LoadImage(url, name) {
         layer.draw();
     }
 
+    const uploadImg = new Image();
+    uploadImg.onload = () => {
+
+    };
+    uploadImg.crossOrigin = 'Anoymous';
+    uploadImg.src = url;
+
     var uploadedImg = Konva.Image.fromURL(
         //'750a5371-bbbb-4351-82f1-1e345da9b7c8.png',
-        url,
+        uploadImg.src,
         (img) => {
             img.setAttrs({
                 x: 0,
                 y: 0,
                 name: 'image',
                 draggable: true,
+
             });
             img.on('dragmove', updateText);
+
             layer.add(img);
             // apply default left-top crop
             console.log(img);
