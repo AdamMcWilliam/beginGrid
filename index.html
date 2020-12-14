@@ -7,30 +7,35 @@
 </head>
 
 <body>
-    <div id="container"></div>
+    <div id="background">
 
-    <div id="addImage">
-        <input type='file' />
+        <div id="container"></div>
+
+        <div id="addImage">
+            <input type='file' />
+        </div>
+
+        <div id="interface">
+            <input placeholder="ENTER IMAGE NAME" id="name" type="text" />
+            <input placeholder="ENTER URL" id="url" type="text" />
+            <!-- <button id="submit" onclick="submissionMade();">Submit</button> -->
+        </div>
+
+        <br/><br/>
+
+        <div id="commands">
+            <b>COMMANDS</b>
+            <div id="imgCommand"></div>
+            <div id="moveCommand"></div>
+            <div id="scaleCommand"></div>
+            <div id="rotateCommand"></div>
+        </div>
+
+        <script>
+        </script>
+
     </div>
-
-    <div id="interface">
-        <input placeholder="ENTER IMAGE NAME" id="name" type="text" />
-        <input placeholder="ENTER URL" id="url" type="text" />
-        <button id="submit" onclick="submissionMade();">Submit</button>
-    </div>
-
-    <br/><br/>
-
-    <div id="commands">
-        <b>COMMANDS</b>
-        <div id="imgCommand"></div>
-        <div id="moveCommand"></div>
-        <div id="scaleCommand"></div>
-        <div id="rotateCommand"></div>
-    </div>
-
-    <script>
-    </script>
+</body>
 
 </html>
 <script src="assets/js/index.js"></script>

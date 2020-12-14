@@ -1,7 +1,9 @@
-body {
+#background {
     background-image: url("https://puu.sh/GXtbO/9cd281b6d8.jpg");
     background-repeat: no-repeat;
     background-size: 1280px 720px;
+    margin: auto;
+    max-width: 1280px;
 }
 
 #container {
