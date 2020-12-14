@@ -1,0 +1,29 @@
+body {
+    background-image: url("https://puu.sh/GWGJR/08fb1f8348.jpg");
+    background-repeat: no-repeat;
+    background-size: 1280px 720px;
+}
+
+#container {
+    width: 1280px;
+    height: 720px;
+}
+
+#placedBtn {
+    z-index: 1000;
+}
+
+#coOrds {
+    z-index: 100;
+    color: blue;
+    font-size: 100px;
+}
+
+#container {
+    z-index: 1000;
+}
+
+#instructions {
+    color: white;
+    font-size: 30px;
+}
