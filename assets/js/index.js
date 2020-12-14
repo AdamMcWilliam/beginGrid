@@ -30,6 +30,11 @@ function LoadImage(url, name, files) {
     stage.add(layer);
 
     function updateText(e) {
+
+        var url = document.getElementById("url").value;
+        var name = document.getElementById("name").value;
+
+
         text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
         layer.batchDraw();
         document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();

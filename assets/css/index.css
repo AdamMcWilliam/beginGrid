@@ -25,6 +25,7 @@ body {
 }
 
 #container canvas,
+#interface,
 #commands {
     position: absolute;
 }
