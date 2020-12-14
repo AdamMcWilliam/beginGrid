@@ -38,7 +38,7 @@ function LoadImage(url, name, files) {
         text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
         layer.batchDraw();
         document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
-        document.getElementById("rotateCommand").innerText = "!rotation " + name + " " + e.target.rotation();
+        document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
         document.getElementById("imgCommand").innerText = "!image " + url + " " + name + " ";
     }
 
