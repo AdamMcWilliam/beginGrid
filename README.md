@@ -1,2 +1,3 @@
 # BeginGrid
- place hats on begin with ease
+ [place hats on begin](https://adammcwilliam.github.io/beginGrid/) with ease
+
