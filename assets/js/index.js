@@ -43,6 +43,7 @@ function LoadImage(url, name, files) {
     }
 
     function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
+        var name = document.getElementById("name").value;
         var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
         text2.text('s = ' + scale);
         layer.batchDraw();
