@@ -1,13 +1,12 @@
-function LoadImage(url, name, files) {
-    const stage = new Konva.Stage({
+    stage = new Konva.Stage({
         container: 'container',
         width: window.innerWidth,
         height: window.innerHeight,
     });
 
-    const layer = new Konva.Layer();
+    layer = new Konva.Layer();
 
-    var text = new Konva.Text({
+    text = new Konva.Text({
         x: 10,
         y: 15,
         text: '',
@@ -17,7 +16,7 @@ function LoadImage(url, name, files) {
     });
     layer.add(text);
 
-    var text2 = new Konva.Text({
+    text2 = new Konva.Text({
         x: 10,
         y: 45,
         text: '',
@@ -29,175 +28,177 @@ function LoadImage(url, name, files) {
 
     stage.add(layer);
 
-    function updateText(e) {
-
-        var url = document.getElementById("url").value;
-        var name = document.getElementById("name").value;
+    function LoadImage(url, name, files) {
 
 
-        text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
-        layer.batchDraw();
-        document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
-        document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
-        document.getElementById("imgCommand").innerText = "!image " + url + " " + name + " ";
-    }
+        function updateText(e) {
 
-    function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
-        var name = document.getElementById("name").value;
-        var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
-        text2.text('s = ' + scale);
-        layer.batchDraw();
+            var url = document.getElementById("url").value;
+            var name = document.getElementById("name").value;
 
-        document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
-    }
 
-    // function to calculate crop values from source image, its visible size and a crop strategy
-    function getCrop(image, size, clipPosition = 'center-middle') {
-        const width = size.width;
-        const height = size.height;
-        const aspectRatio = width / height;
-
-        let newWidth;
-        let newHeight;
-
-        const imageRatio = image.width / image.height;
-
-        if (aspectRatio >= imageRatio) {
-            newWidth = image.width;
-            newHeight = image.width / aspectRatio;
-        } else {
-            newWidth = image.height * aspectRatio;
-            newHeight = image.height;
+            text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
+            layer.batchDraw();
+            document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
+            document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
+            document.getElementById("imgCommand").innerText = "!image " + url + " " + name + " ";
         }
 
-        let x = 0;
-        let y = 0;
-        if (clipPosition === 'left-top') {
-            x = 0;
-            y = 0;
-        } else if (clipPosition === 'left-middle') {
-            x = 0;
-            y = (image.height - newHeight) / 2;
-        } else if (clipPosition === 'left-bottom') {
-            x = 0;
-            y = image.height - newHeight;
-        } else if (clipPosition === 'center-top') {
-            x = (image.width - newWidth) / 2;
-            y = 0;
-        } else if (clipPosition === 'center-middle') {
-            x = (image.width - newWidth) / 2;
-            y = (image.height - newHeight) / 2;
-        } else if (clipPosition === 'center-bottom') {
-            x = (image.width - newWidth) / 2;
-            y = image.height - newHeight;
-        } else if (clipPosition === 'right-top') {
-            x = image.width - newWidth;
-            y = 0;
-        } else if (clipPosition === 'right-middle') {
-            x = image.width - newWidth;
-            y = (image.height - newHeight) / 2;
-        } else if (clipPosition === 'right-bottom') {
-            x = image.width - newWidth;
-            y = image.height - newHeight;
-        } else if (clipPosition === 'scale') {
-            x = 0;
-            y = 0;
-            newWidth = width;
-            newHeight = height;
-        } else {
-            console.error(
-                new Error('Unknown clip position property - ' + clipPosition)
-            );
+        function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
+            var name = document.getElementById("name").value;
+            var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
+            text2.text('s = ' + scale);
+            layer.batchDraw();
+
+            document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
         }
 
-        return {
-            cropX: x,
-            cropY: y,
-            cropWidth: newWidth,
-            cropHeight: newHeight,
-        };
-    }
+        // function to calculate crop values from source image, its visible size and a crop strategy
+        function getCrop(image, size, clipPosition = 'center-middle') {
+            const width = size.width;
+            const height = size.height;
+            const aspectRatio = width / height;
 
-    // function to apply crop
-    function applyCrop(pos) {
-        const img = layer.findOne('.image');
-        img.setAttr('lastCropUsed', pos);
-        const crop = getCrop(
-            img.image(), {
-                width: img.width(),
-                height: img.height()
-            },
-            pos
-        );
-        img.setAttrs(crop);
-        layer.draw();
-    }
+            let newWidth;
+            let newHeight;
 
-    const uploadImg = new Image();
-    uploadImg.onload = () => {
+            const imageRatio = image.width / image.height;
 
-    };
-    uploadImg.crossOrigin = 'Anoymous';
-    uploadImg.src = URL.createObjectURL(files);
+            if (aspectRatio >= imageRatio) {
+                newWidth = image.width;
+                newHeight = image.width / aspectRatio;
+            } else {
+                newWidth = image.height * aspectRatio;
+                newHeight = image.height;
+            }
 
-    var uploadedImg = Konva.Image.fromURL(
-        //'750a5371-bbbb-4351-82f1-1e345da9b7c8.png',
-        uploadImg.src,
-        (img) => {
-            img.setAttrs({
-                x: 0,
-                y: 0,
-                name: 'image',
-                draggable: true,
+            let x = 0;
+            let y = 0;
+            if (clipPosition === 'left-top') {
+                x = 0;
+                y = 0;
+            } else if (clipPosition === 'left-middle') {
+                x = 0;
+                y = (image.height - newHeight) / 2;
+            } else if (clipPosition === 'left-bottom') {
+                x = 0;
+                y = image.height - newHeight;
+            } else if (clipPosition === 'center-top') {
+                x = (image.width - newWidth) / 2;
+                y = 0;
+            } else if (clipPosition === 'center-middle') {
+                x = (image.width - newWidth) / 2;
+                y = (image.height - newHeight) / 2;
+            } else if (clipPosition === 'center-bottom') {
+                x = (image.width - newWidth) / 2;
+                y = image.height - newHeight;
+            } else if (clipPosition === 'right-top') {
+                x = image.width - newWidth;
+                y = 0;
+            } else if (clipPosition === 'right-middle') {
+                x = image.width - newWidth;
+                y = (image.height - newHeight) / 2;
+            } else if (clipPosition === 'right-bottom') {
+                x = image.width - newWidth;
+                y = image.height - newHeight;
+            } else if (clipPosition === 'scale') {
+                x = 0;
+                y = 0;
+                newWidth = width;
+                newHeight = height;
+            } else {
+                console.error(
+                    new Error('Unknown clip position property - ' + clipPosition)
+                );
+            }
 
-            });
-            img.on('dragmove', updateText);
+            return {
+                cropX: x,
+                cropY: y,
+                cropWidth: newWidth,
+                cropHeight: newHeight,
+            };
+        }
 
-            layer.add(img);
-            // apply default left-top crop
-            console.log(img);
-
-            const tr = new Konva.Transformer({
-                nodes: [img],
-                keepRatio: true,
-                boundBoxFunc: (oldBox, newBox) => {
-                    if (newBox.width < 10 || newBox.height < 10) {
-                        return oldBox;
-                    }
-                    return newBox;
+        // function to apply crop
+        function applyCrop(pos) {
+            const img = layer.findOne('.image');
+            img.setAttr('lastCropUsed', pos);
+            const crop = getCrop(
+                img.image(), {
+                    width: img.width(),
+                    height: img.height()
                 },
-            });
-
-            layer.add(tr);
+                pos
+            );
+            img.setAttrs(crop);
             layer.draw();
+        }
 
-            img.on('transform', () => {
-                // reset scale on transform
+        const uploadImg = new Image();
+        uploadImg.onload = () => {
+
+        };
+        uploadImg.crossOrigin = 'Anoymous';
+        uploadImg.src = URL.createObjectURL(files);
+
+        var uploadedImg = Konva.Image.fromURL(
+            //'750a5371-bbbb-4351-82f1-1e345da9b7c8.png',
+            uploadImg.src,
+            (img) => {
                 img.setAttrs({
-                    scaleX: 1,
-                    scaleY: 1,
-                    width: img.width() * img.scaleX(),
-                    height: img.height() * img.scaleY(),
+                    x: 0,
+                    y: 0,
+                    name: 'image',
+                    draggable: true,
+
+                });
+                img.on('dragmove', updateText);
+
+                layer.add(img);
+                console.log(img);
+
+                const tr = new Konva.Transformer({
+                    nodes: [img],
+                    keepRatio: true,
+                    boundBoxFunc: (oldBox, newBox) => {
+                        if (newBox.width < 10 || newBox.height < 10) {
+                            return oldBox;
+                        }
+                        return newBox;
+                    },
                 });
 
-                showScale(img.attrs.image.naturalWidth, img.attrs.image.naturalHeight, (img.width() * img.scaleX()), (img.height() * img.scaleY()));
+                layer.add(tr);
+                layer.draw();
 
-                applyCrop(img.getAttr('lastCropUsed'));
-            });
-        }
-    );
+                img.on('transform', () => {
+                    // reset scale on transform
+                    img.setAttrs({
+                        scaleX: 1,
+                        scaleY: 1,
+                        width: img.width() * img.scaleX(),
+                        height: img.height() * img.scaleY(),
+                    });
 
-    //uploadedImg.on('dragmove', updateText);
-}
+                    showScale(img.attrs.image.naturalWidth, img.attrs.image.naturalHeight, (img.width() * img.scaleX()), (img.height() * img.scaleY()));
 
-function submissionMade() {
-    LoadImage(document.getElementById("url").value, document.getElementById("name").value);
-}
+                    applyCrop(img.getAttr('lastCropUsed'));
+                });
+            }
+        );
 
-window.addEventListener('load', function() {
-    document.querySelector('input[type="file"]').addEventListener('change', function() {
-        if (this.files && this.files[0]) {
-            LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0]);
-        }
+        //uploadedImg.on('dragmove', updateText);
+    }
+
+    // function submissionMade() {
+    //     LoadImage(document.getElementById("url").value, document.getElementById("name").value);
+    // }
+
+    window.addEventListener('load', function() {
+        document.querySelector('input[type="file"]').addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0]);
+            }
+        });
     });
-});
