@@ -28,8 +28,7 @@
 
     stage.add(layer);
 
-    function LoadImage(url, name, files) {
-
+    function LoadImage(url, name, files, fileName) {
 
         function updateText(e) {
 
@@ -41,7 +40,12 @@
             layer.batchDraw();
             document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
             document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
-            document.getElementById("imgCommand").innerText = "!image " + url + " " + name + " ";
+            if (name == "") {
+                document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
+            } else {
+                document.getElementById("imgCommand").innerText = "!image " + url + " " + name;
+            }
+
         }
 
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
@@ -141,15 +145,16 @@
         };
         uploadImg.crossOrigin = 'Anoymous';
         uploadImg.src = URL.createObjectURL(files);
+        //console.log(uploadImg.src);
 
         var uploadedImg = Konva.Image.fromURL(
-            //'750a5371-bbbb-4351-82f1-1e345da9b7c8.png',
             uploadImg.src,
             (img) => {
                 img.setAttrs({
                     x: 0,
                     y: 0,
                     name: 'image',
+                    id: fileName,
                     draggable: true,
 
                 });
@@ -191,14 +196,16 @@
         //uploadedImg.on('dragmove', updateText);
     }
 
-    // function submissionMade() {
-    //     LoadImage(document.getElementById("url").value, document.getElementById("name").value);
-    // }
-
     window.addEventListener('load', function() {
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
-                LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0]);
+                var fileName = document.getElementById('file').value;
+                //split to just name
+                fileNameStriped = fileName.split("\\");
+                fileNameStriped = fileNameStriped[2].split(".");
+                fileName = fileNameStriped[0];
+
+                LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0], fileName);
             }
         });
     });
