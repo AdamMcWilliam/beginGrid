@@ -27,6 +27,7 @@
 }
 
 #container canvas,
+#twitch-embed,
 #interface,
 #commands {
     position: absolute;

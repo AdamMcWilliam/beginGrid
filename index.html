@@ -3,12 +3,17 @@
 <head>
     <link type="text/css" href="assets/css/index.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://unpkg.com/konva@7.2.1/konva.min.js"></script>
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <script src="https://unpkg.com/konva@7.2.2/konva.min.js"></script>
     <script type="text/javascript" src="assets/js/index.js"></script>
+
 </head>
 
 <body>
+
     <div id="background">
+
+        <div id="twitch-embed"></div>
 
         <div id="container"></div>
 
@@ -19,7 +24,6 @@
 
             <input placeholder="ENTER IMAGE NAME" id="name" type="text" />
             <input placeholder="ENTER URL" id="url" type="text" />
-            <!-- <button id="submit" onclick="submissionMade();">Submit</button> -->
         </div>
 
         <br/><br/><br/>

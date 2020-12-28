@@ -5,28 +5,16 @@
     });
 
     layer = new Konva.Layer();
-
-    text = new Konva.Text({
-        x: 10,
-        y: 15,
-        text: '',
-        fontSize: 30,
-        fontFamily: 'Calibri',
-        fill: 'white',
-    });
-    layer.add(text);
-
-    text2 = new Konva.Text({
-        x: 10,
-        y: 45,
-        text: '',
-        fontSize: 30,
-        fontFamily: 'Calibri',
-        fill: 'white',
-    });
-    layer.add(text2);
-
     stage.add(layer);
+
+
+    new Twitch.Embed("twitch-embed", {
+        width: 1280,
+        height: 720,
+        channel: "beginbot",
+        layout: "video",
+        muted: "true",
+    });
 
     function LoadImage(url, name, files, fileName) {
 
@@ -35,9 +23,6 @@
             var url = document.getElementById("url").value;
             var name = document.getElementById("name").value;
 
-
-            text.text('x = ' + e.target.x() + '   y = ' + e.target.y());
-            layer.batchDraw();
             document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
             document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
             if (name == "") {
@@ -51,8 +36,6 @@
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
             var name = document.getElementById("name").value;
             var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
-            text2.text('s = ' + scale);
-            layer.batchDraw();
 
             document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
         }
@@ -192,8 +175,6 @@
                 });
             }
         );
-
-        //uploadedImg.on('dragmove', updateText);
     }
 
     window.addEventListener('load', function() {
