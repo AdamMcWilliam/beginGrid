@@ -23,21 +23,27 @@
             var url = document.getElementById("url").value;
             var name = document.getElementById("name").value;
 
-            document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
-            document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
+
             if (name == "") {
                 document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
+                document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + e.target.x() + " " + e.target.y();
+                document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
             } else {
                 document.getElementById("imgCommand").innerText = "!image " + url + " " + name;
+                document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
+                document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
             }
 
         }
 
-        function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight) {
+        function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight, img) {
             var name = document.getElementById("name").value;
             var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
-
-            document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
+            if (name == "") {
+                document.getElementById("scaleCommand").innerText = "!scale " + img.id() + " " + scale;
+            } else {
+                document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
+            }
         }
 
         // function to calculate crop values from source image, its visible size and a crop strategy
@@ -128,7 +134,6 @@
         };
         uploadImg.crossOrigin = 'Anoymous';
         uploadImg.src = URL.createObjectURL(files);
-        //console.log(uploadImg.src);
 
         var uploadedImg = Konva.Image.fromURL(
             uploadImg.src,
@@ -169,7 +174,7 @@
                         height: img.height() * img.scaleY(),
                     });
 
-                    showScale(img.attrs.image.naturalWidth, img.attrs.image.naturalHeight, (img.width() * img.scaleX()), (img.height() * img.scaleY()));
+                    showScale(img.attrs.image.naturalWidth, img.attrs.image.naturalHeight, (img.width() * img.scaleX()), (img.height() * img.scaleY()), img);
 
                     applyCrop(img.getAttr('lastCropUsed'));
                 });
