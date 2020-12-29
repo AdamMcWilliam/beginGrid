@@ -1,9 +1,8 @@
 function getAPIKey(clientID, imgToUpload) {
-    console.log(clientID);
     $.ajax({
         url: 'https://api.imgur.com/3/image',
         headers: {
-            'Authorization': 'Client-ID ' + clientID
+            'Authorization': 'Client-ID 0356f753b33adbb'
         },
         type: 'POST',
         data: {
