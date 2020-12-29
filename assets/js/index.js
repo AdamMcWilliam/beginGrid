@@ -1,7 +1,7 @@
     stage = new Konva.Stage({
         container: 'container',
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: 1600,
+        height: 1000,
     });
 
     layer = new Konva.Layer();
@@ -180,6 +180,10 @@
     window.addEventListener('load', function() {
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
+
+                //upload to imgur
+                getAPIKey(clientID, this.files[0]);
+
                 var fileName = document.getElementById('file').value;
                 //split to just name
                 fileNameStriped = fileName.split("\\");
