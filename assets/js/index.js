@@ -16,34 +16,17 @@
         muted: "true",
     });
 
-    function LoadImage(url, name, files, fileName) {
+    function LoadImage(url, files, fileName) {
 
         function updateText(e) {
-
-            //var url = document.getElementById("url").value;
-            var name = document.getElementById("name").value;
-
-
-            if (name == "") {
-                document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
-                document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + e.target.x() + " " + e.target.y();
-                document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
-            } else {
-                document.getElementById("imgCommand").innerText = "!image " + url + " " + name;
-                document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
-                document.getElementById("rotateCommand").innerText = "!rotate " + name + " " + e.target.rotation();
-            }
-
+            document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
+            document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + e.target.x() + " " + e.target.y();
+            document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
         }
 
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight, img) {
-            var name = document.getElementById("name").value;
             var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
-            if (name == "") {
-                document.getElementById("scaleCommand").innerText = "!scale " + img.id() + " " + scale;
-            } else {
-                document.getElementById("scaleCommand").innerText = "!scale " + name + " " + scale;
-            }
+            document.getElementById("scaleCommand").innerText = "!scale " + img.id() + " " + scale;
         }
 
         // function to calculate crop values from source image, its visible size and a crop strategy
@@ -197,7 +180,7 @@
                 fileNameStriped = fileNameStriped[2].split(".");
                 fileName = fileNameStriped[0];
 
-                LoadImage(imgUrl, document.getElementById("name").value, this.files[0], fileName);
+                LoadImage(imgUrl, this.files[0], fileName);
             }
         });
     });
