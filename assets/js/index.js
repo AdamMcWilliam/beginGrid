@@ -1,7 +1,7 @@
     stage = new Konva.Stage({
         container: 'container',
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: 1600,
+        height: 1000,
     });
 
     layer = new Konva.Layer();
@@ -20,7 +20,7 @@
 
         function updateText(e) {
 
-            var url = document.getElementById("url").value;
+            //var url = document.getElementById("url").value;
             var name = document.getElementById("name").value;
 
 
@@ -185,13 +185,19 @@
     window.addEventListener('load', function() {
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
+
+                //upload to imgur
+                uploadImg(this.files[0]);
+                imgUrl = document.getElementById("imgurLink").textContent;
+                console.log(imgUrl);
+
                 var fileName = document.getElementById('file').value;
                 //split to just name
                 fileNameStriped = fileName.split("\\");
                 fileNameStriped = fileNameStriped[2].split(".");
                 fileName = fileNameStriped[0];
 
-                LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0], fileName);
+                LoadImage(imgUrl, document.getElementById("name").value, this.files[0], fileName);
             }
         });
     });

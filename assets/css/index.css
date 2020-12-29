@@ -36,3 +36,7 @@
 canvas {
     border: 1px solid black;
 }
+
+#imgurLink {
+    display: none;
+}
