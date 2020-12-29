@@ -1,4 +1,4 @@
-function getAPIKey(clientID, imgToUpload) {
+function getAPIKey(imgToUpload) {
     $.ajax({
         url: 'https://api.imgur.com/3/image',
         headers: {

@@ -182,7 +182,7 @@
             if (this.files && this.files[0]) {
 
                 //upload to imgur
-                getAPIKey(clientID, this.files[0]);
+                getAPIKey(this.files[0]);
 
                 var fileName = document.getElementById('file').value;
                 //split to just name
