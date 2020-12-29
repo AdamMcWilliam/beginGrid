@@ -1,17 +1,5 @@
-function encodeImageFileAsURL(element) {
-    var file = element;
-    var reader = new FileReader();
-    reader.onloadend = function() {
-        console.log('RESULT', reader.result)
-        return reader.result;
-    }
-    reader.readAsDataURL(file);
-
-}
-
 function getAPIKey(clientID, imgToUpload) {
-    img = encodeImageFileAsURL(imgToUpload);
-    console.log(img);
+    console.log(clientID);
     $.ajax({
         url: 'https://api.imgur.com/3/image',
         headers: {
@@ -19,15 +7,9 @@ function getAPIKey(clientID, imgToUpload) {
         },
         type: 'POST',
         data: {
-            'image': img,
-            'type': 'base64'
+            'image': '../imgs/beginBackground.jpg'
         },
-        success: function(response) {
-            alert(response.data.link);
-        },
-        error: function() {
-            alert("Error while uploading...");
-        }
+        success: function() { console.log('cool'); }
     });
 }
 
