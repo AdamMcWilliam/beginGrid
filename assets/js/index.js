@@ -20,7 +20,7 @@
 
         function updateText(e) {
 
-            var url = document.getElementById("url").value;
+            //var url = document.getElementById("url").value;
             var name = document.getElementById("name").value;
 
             document.getElementById("moveCommand").innerText = "!move " + name + " " + e.target.x() + " " + e.target.y();
@@ -182,7 +182,9 @@
             if (this.files && this.files[0]) {
 
                 //upload to imgur
-                getAPIKey(this.files[0]);
+                uploadImg(this.files[0]);
+                imgUrl = document.getElementById("imgurLink").textContent;
+                console.log(imgUrl);
 
                 var fileName = document.getElementById('file').value;
                 //split to just name
@@ -190,7 +192,7 @@
                 fileNameStriped = fileNameStriped[2].split(".");
                 fileName = fileNameStriped[0];
 
-                LoadImage(document.getElementById("url").value, document.getElementById("name").value, this.files[0], fileName);
+                LoadImage(imgUrl, document.getElementById("name").value, this.files[0], fileName);
             }
         });
     });
