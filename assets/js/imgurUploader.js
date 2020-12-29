@@ -6,7 +6,7 @@ function getAPIKey(imgToUpload) {
         },
         type: 'POST',
         data: {
-            'image': '../imgs/beginBackground.jpg'
+            'image': 'beginBackground.jpg'
         },
         success: function() { console.log('cool'); }
     });
