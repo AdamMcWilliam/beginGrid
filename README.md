@@ -10,7 +10,13 @@
 Note: Multiple images are supported, Commands will change based or most recently moved image.
 
 # More info
-Interested in how this works on the other end? Check out [Begins project](https://gitlab.com/beginbot/beginsounds)
+Interested in how this works on the other end? Check out [Begin's project](https://gitlab.com/beginbot/beginsounds)
 
 # Demo
 ![demo gif](demos/beginGridDemo2.gif)
+
+# Tech Used
+[Konvajs](https://konvajs.org/)
+[Twitch Embed Everything](https://dev.twitch.tv/docs/embed/everything)
+[Twitch Embed Chat](https://dev.twitch.tv/docs/embed/chat)
+[Imgur API](https://api.imgur.com/)
