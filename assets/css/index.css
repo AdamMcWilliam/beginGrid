@@ -1,12 +1,38 @@
-#background {
-    background-image: url("../imgs/beginBackground.jpg");
-    background-repeat: no-repeat;
+body{ 
+    background-color: #6441a5;
+    color:#f1f1f1;
+    font-size: 18px;
     background-size: 1280px 720px;
     margin: auto;
     max-width: 1280px;
 }
 
-#container {
+#githubSocials{
+    padding-top: 10px;
+    text-align: right;
+    padding-bottom: 30px;
+}
+
+#interface{
+    text-align: center;
+    width: 1280px;
+    height: 15px;
+    padding-top: 39px;
+    width: 100%;
+}
+
+input[type="file"]{
+    font-size: 25px;
+}
+
+#twitch-embed{
+    border-radius: 4.7px;
+    border-color: #262626;
+    border-width: 8px;
+    border-style: solid;
+}
+
+#container{
     width: 1280px;
     height: 720px;
 }
@@ -15,11 +41,6 @@
     z-index: 100;
     color: blue;
     font-size: 100px;
-}
-
-#instructions {
-    color: white;
-    font-size: 30px;
 }
 
 #container {
@@ -33,14 +54,48 @@
     position: absolute;
 }
 
-canvas {
-    border: 1px solid black;
-}
-
 #imgurLink {
     display: none;
 }
 
 #imgCommand, #moveCommand, #scaleCommand, #rotateCommand{
     display:inline-block;
+}
+
+#twitch-chat-holder{
+    padding-top: 174px;
+    padding-bottom: 25px;
+}
+
+#twitch-chat{
+    border-radius: 6.4px;
+    border-color: #262626;
+    border-width: 10px;
+    border-style: solid;
+}
+
+#commands{
+    background-color: #b9a3e3;
+    width: 1280px;
+    height: 156px;
+    border-radius: 8.2px;
+    border-color: #737373;
+    border-width: 8px;
+    border-style: solid;
+}
+
+#commands h1{
+    color: #f1f1f1;
+    text-align: center;
+    font-size: 20px;
+}
+
+#commandsHolder{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#commandText{
+    text-align: center;
+    padding-bottom: 4px;
 }

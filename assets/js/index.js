@@ -7,7 +7,6 @@
     layer = new Konva.Layer();
     stage.add(layer);
 
-
     new Twitch.Embed("twitch-embed", {
         width: 1280,
         height: 720,
