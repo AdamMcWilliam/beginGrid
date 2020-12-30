@@ -70,8 +70,9 @@ input[type="file"]{
 #twitch-chat{
     border-radius: 6.4px;
     border-color: #262626;
-    border-width: 10px;
+    border-width: 8px;
     border-style: solid;
+    width: 1280px;
 }
 
 #commands{
