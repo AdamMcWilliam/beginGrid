@@ -169,23 +169,25 @@
             if (this.files && this.files[0]) {
 
                 //upload to imgur
-                uploadImg(this.files[0]);
-                imgUrl = document.getElementById("imgurLink").textContent;
-                console.log(imgUrl);
+                const onComplete = (imgUrl) => {
+                    console.log(imgUrl);
 
-                var fileName = document.getElementById('file').value;
-                //split to just name
-                fileNameStriped = fileName.split("\\");
-                fileNameStriped = fileNameStriped[2].split(".");
-                fileName = fileNameStriped[0];
+                    var fileName = document.getElementById('file').value;
+                    //split to just name
+                    fileNameStriped = fileName.split("\\");
+                    fileNameStriped = fileNameStriped[2].split(".");
+                    fileName = fileNameStriped[0];
 
-                LoadImage(imgUrl, this.files[0], fileName);
+                    LoadImage(imgUrl, this.files[0], fileName);
+                }
+
+                uploadImg(this.files[0], onComplete);
             }
         });
     });
 
     function copyDivToClipboard(elem) {
-        console.log("copying element: "+elem);
+        console.log("copying element: " + elem);
         var range = document.createRange();
         range.selectNode(document.getElementById(elem));
         window.getSelection().removeAllRanges();
@@ -194,18 +196,18 @@
         window.getSelection().removeAllRanges();
     }
 
-    document.getElementById("imageBtn").addEventListener("click", function(){
+    document.getElementById("imageBtn").addEventListener("click", function() {
         copyDivToClipboard('imgCommand');
     });
 
-    document.getElementById("moveBtn").addEventListener("click", function(){
+    document.getElementById("moveBtn").addEventListener("click", function() {
         copyDivToClipboard('moveCommand');
     });
 
-    document.getElementById("scaleBtn").addEventListener("click", function(){
+    document.getElementById("scaleBtn").addEventListener("click", function() {
         copyDivToClipboard('scaleCommand');
     });
 
-    document.getElementById("rotateBtn").addEventListener("click", function(){
+    document.getElementById("rotateBtn").addEventListener("click", function() {
         copyDivToClipboard('rotateCommand');
     });

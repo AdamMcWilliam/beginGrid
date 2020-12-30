@@ -1,4 +1,4 @@
-function uploadImg(imgToUpload) {
+function uploadImg(imgToUpload, onComplete) {
     // Begin file upload
     console.log("Uploading file to Imgur..");
 
@@ -29,6 +29,6 @@ function uploadImg(imgToUpload) {
         console.log(JSON.parse(response));
         var json = JSON.parse(response);
         var link = json.data.link;
-        document.getElementById('imgurLink').innerHTML = link;
+        onComplete(link);
     });
 }
