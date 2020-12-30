@@ -184,3 +184,29 @@
             }
         });
     });
+
+    function copyDivToClipboard(elem) {
+        console.log("copying element: "+elem);
+        var range = document.createRange();
+        range.selectNode(document.getElementById(elem));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+    }
+
+    document.getElementById("imageBtn").addEventListener("click", function(){
+        copyDivToClipboard('imgCommand');
+    });
+
+    document.getElementById("moveBtn").addEventListener("click", function(){
+        copyDivToClipboard('moveCommand');
+    });
+
+    document.getElementById("scaleBtn").addEventListener("click", function(){
+        copyDivToClipboard('scaleCommand');
+    });
+
+    document.getElementById("rotateBtn").addEventListener("click", function(){
+        copyDivToClipboard('rotateCommand');
+    });

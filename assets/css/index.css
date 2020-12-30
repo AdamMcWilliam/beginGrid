@@ -40,3 +40,7 @@ canvas {
 #imgurLink {
     display: none;
 }
+
+#imgCommand, #moveCommand, #scaleCommand, #rotateCommand{
+    display:inline-block;
+}
