@@ -1,38 +1,37 @@
-body{ 
+body {
     background-color: #6441a5;
-    color:#f1f1f1;
+    color: #f1f1f1;
     font-size: 18px;
     background-size: 1280px 720px;
     margin: auto;
     max-width: 1280px;
 }
 
-#githubSocials{
+#githubSocials {
     padding-top: 10px;
     text-align: right;
     padding-bottom: 30px;
 }
 
-#interface{
+#interface {
     text-align: center;
     width: 1280px;
     height: 15px;
     padding-top: 39px;
-    width: 100%;
 }
 
-input[type="file"]{
+input[type="file"] {
     font-size: 25px;
 }
 
-#twitch-embed{
+#twitch-embed {
     border-radius: 4.7px;
     border-color: #262626;
     border-width: 8px;
     border-style: solid;
 }
 
-#container{
+#container {
     width: 1280px;
     height: 720px;
 }
@@ -58,16 +57,19 @@ input[type="file"]{
     display: none;
 }
 
-#imgCommand, #moveCommand, #scaleCommand, #rotateCommand{
-    display:inline-block;
+#imgCommand,
+#moveCommand,
+#scaleCommand,
+#rotateCommand {
+    display: inline-block;
 }
 
-#twitch-chat-holder{
+#twitch-chat-holder {
     padding-top: 174px;
     padding-bottom: 25px;
 }
 
-#twitch-chat{
+#twitch-chat {
     border-radius: 6.4px;
     border-color: #262626;
     border-width: 8px;
@@ -75,7 +77,7 @@ input[type="file"]{
     width: 1280px;
 }
 
-#commands{
+#commands {
     background-color: #b9a3e3;
     width: 1280px;
     height: 156px;
@@ -85,18 +87,18 @@ input[type="file"]{
     border-style: solid;
 }
 
-#commands h1{
+#commands h1 {
     color: #f1f1f1;
     text-align: center;
     font-size: 20px;
 }
 
-#commandsHolder{
+#commandsHolder {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#commandText{
+#commandText {
     text-align: center;
     padding-bottom: 4px;
 }
