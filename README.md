@@ -9,5 +9,8 @@
 
 Note: Multiple images are supported, Commands will change based or most recently moved image.
 
+# More info
+Interested in how this works on the other end? Check out [Begins project](https://gitlab.com/beginbot/beginsounds)
+
 # Demo
-![demo gif](demos/beginGridDemoMidsize.gif)
+![demo gif](demos/beginGridDemo2.gif)
