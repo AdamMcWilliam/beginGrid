@@ -18,7 +18,14 @@
     function LoadImage(url, files, fileName) {
 
         function updateText(e) {
-            document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
+            if (url.includes(".gif")) {
+                var imgCommand = "!gif";
+            } else {
+                var imgCommand = "!image";
+            }
+
+            console.log(e);
+            document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
             document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y()));
             document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
         }
