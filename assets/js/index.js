@@ -19,12 +19,14 @@
 
         function updateText(e) {
             document.getElementById("imgCommand").innerText = "!image " + url + " " + e.target.id();
-            document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + e.target.x() + " " + e.target.y();
+            document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y()));
             document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
         }
 
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight, img) {
             var scale = parseInt(sizedWidth) / parseInt(naturalWidth);
+            //get 2 decimals places
+            scale = Math.round((scale + Number.EPSILON) * 100) / 100;
             document.getElementById("scaleCommand").innerText = "!scale " + img.id() + " " + scale;
         }
 
