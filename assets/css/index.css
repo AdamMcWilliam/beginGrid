@@ -102,3 +102,8 @@ input[type="file"] {
     text-align: center;
     padding-bottom: 4px;
 }
+
+canvas {
+    top: 8px !important;
+    left: 8px !important;
+}
