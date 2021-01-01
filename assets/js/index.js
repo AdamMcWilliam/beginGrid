@@ -39,8 +39,11 @@
             document.getElementById("pipeFind").innerText = "!find " + e.target.id() + " | ";
             document.getElementById("pipeMove").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y())) + " | ";
             document.getElementById("pipeRotate").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
-            document.getElementById("pipeScale").innerText = "!scale " + e.target.id() + " " + "1" + " | ";
 
+            //set default scale for piping
+            if (document.getElementById('pipeScale').innerHTML == "!scale [NAME] [SIZE]") {
+                document.getElementById("pipeScale").innerText = "!scale " + e.target.id() + " " + "1" + " | ";
+            }
         }
 
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight, img) {
