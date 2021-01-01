@@ -24,12 +24,13 @@ input[type="file"] {
     font-size: 25px;
 }
 
-#twitch-embed {
-    /* border-radius: 4.7px;
+
+/* #twitch-embed {
+    border-radius: 4.7px;
     border-color: #262626;
     border-width: 8px;
-    border-style: solid; */
-}
+    border-style: solid; 
+} */
 
 #container {
     width: 1280px;
@@ -61,12 +62,17 @@ input[type="file"] {
 #imgCommand,
 #moveCommand,
 #scaleCommand,
-#rotateCommand {
+#rotateCommand,
+#pipedCommands,
+#pipeFind,
+#pipeMove,
+#pipeScale,
+#pipeRotate {
     display: inline-block;
 }
 
 #twitch-chat-holder {
-    padding-top: 174px;
+    padding-top: 200px;
     padding-bottom: 25px;
 }
 
@@ -81,7 +87,7 @@ input[type="file"] {
 #commands {
     background-color: #b9a3e3;
     width: 1280px;
-    height: 156px;
+    height: 180px;
     border-radius: 8.2px;
     border-color: #737373;
     border-width: 8px;
@@ -135,7 +141,8 @@ input[type="file"] {
 /* Track */
 
 #imgSelector::-webkit-scrollbar-track {
-    box-shadow: 0 0 1px 1px hsla(0, 0%, 100%, .25) border-radius: 10px;
+    box-shadow: 0 0 1px 1px hsla(0, 0%, 100%, .25);
+    border-radius: 10px;
 }
 
 

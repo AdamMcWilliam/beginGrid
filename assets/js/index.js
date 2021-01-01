@@ -25,6 +25,7 @@
             }
 
             //dont show upload command for beginworld images
+            //!find kirbydance | !move kirbydance 811 418 | !scale kirbydance 0.43 
             if (files) {
                 document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
             } else {
@@ -33,6 +34,13 @@
 
             document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y()));
             document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
+
+            //set pipes
+            document.getElementById("pipeFind").innerText = "!find " + e.target.id() + " | ";
+            document.getElementById("pipeMove").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y())) + " | ";
+            document.getElementById("pipeRotate").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
+            document.getElementById("pipeScale").innerText = "!scale " + e.target.id() + " " + "1" + " | ";
+
         }
 
         function showScale(naturalWidth, naturalHeight, sizedWidth, sizedHeight, img) {
@@ -40,6 +48,7 @@
             //get 2 decimals places
             scale = Math.round((scale + Number.EPSILON) * 100) / 100;
             document.getElementById("scaleCommand").innerText = "!scale " + img.id() + " " + scale;
+            document.getElementById("pipeScale").innerText = "!scale " + img.id() + " " + scale + " | ";
         }
 
         // function to calculate crop values from source image, its visible size and a crop strategy
@@ -238,4 +247,8 @@
 
     document.getElementById("rotateBtn").addEventListener("click", function() {
         copyDivToClipboard('rotateCommand');
+    });
+
+    document.getElementById("pipeBtn").addEventListener("click", function() {
+        copyDivToClipboard('pipedCommands');
     });
