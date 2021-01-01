@@ -16,8 +16,8 @@
     });
 
     //Get Images
-    var dom = getSourceAsDOM("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");
-    console.log(dom);
+    getSourceAsDOM("https://beginworld.website-us-east-1.linodeobjects.com/memes.html")
+
 
     function LoadImage(url, files, fileName) {
 
