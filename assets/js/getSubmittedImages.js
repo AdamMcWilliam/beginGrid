@@ -31,6 +31,8 @@ function parseHTML(url) {
 
 
 function getSourceAsDOM(url) {
+    console.log("loading BeginWorld Images..");
+
     url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url, false);
@@ -51,8 +53,17 @@ function placeImages(images) {
         img.alt = name;
         img.width = 280;
         img.height = 280;
+        img.id = "beginWorldImage";
 
         document.getElementById('ImgSelector').appendChild(img);
+
+        img.addEventListener('click', function() {
+            console.log("beginWorldImage clicked");
+            console.log(this.src);
+            console.log(this.alt);
+            LoadImage("https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + this.src, null, this.alt);
+        });
+
     }
 
 }

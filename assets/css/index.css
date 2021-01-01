@@ -25,10 +25,10 @@ input[type="file"] {
 }
 
 #twitch-embed {
-    border-radius: 4.7px;
+    /* border-radius: 4.7px;
     border-color: #262626;
     border-width: 8px;
-    border-style: solid;
+    border-style: solid; */
 }
 
 #container {
@@ -104,16 +104,52 @@ input[type="file"] {
     padding-bottom: 4px;
 }
 
-canvas {
+
+/* canvas {
     top: 8px !important;
     left: 8px !important;
-}
+} */
 
 #imgSelector {
-    background-color: red;
+    background-color: #737373;
     width: 300px;
     height: 720px;
     left: 7px;
     overflow-y: scroll;
     text-align: center;
+}
+
+#imgSelector button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* width */
+
+#imgSelector::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+#imgSelector::-webkit-scrollbar-track {
+    box-shadow: 0 0 1px 1px hsla(0, 0%, 100%, .25) border-radius: 10px;
+}
+
+
+/* Handle */
+
+#imgSelector::-webkit-scrollbar-thumb {
+    background: #1f1f23;
+    border-radius: 10px;
+    border: 1px grey solid;
+}
+
+
+/* Handle on hover */
+
+#imgSelector::-webkit-scrollbar-thumb:hover {
+    background: transparent;
 }

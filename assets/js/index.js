@@ -15,10 +15,6 @@
         muted: "true",
     });
 
-    //Get Images that have already been uploaded to the system
-    parseHTML("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");
-
-
     function LoadImage(url, files, fileName) {
 
         function updateText(e) {
@@ -28,7 +24,13 @@
                 var imgCommand = "!image";
             }
 
-            document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
+            //dont show upload command for beginworld images
+            if (files) {
+                document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
+            } else {
+                document.getElementById("imgCommand").innerText = "!image [URL] [NAME]";
+            }
+
             document.getElementById("moveCommand").innerText = "!move " + e.target.id() + " " + (Math.round(e.target.x())) + " " + (Math.round(e.target.y()));
             document.getElementById("rotateCommand").innerText = "!rotate " + e.target.id() + " " + e.target.rotation();
         }
@@ -127,7 +129,15 @@
 
         };
         uploadImg.crossOrigin = 'Anoymous';
-        uploadImg.src = URL.createObjectURL(files);
+
+        //Already on beginworld
+        if (!files) {
+            uploadImg.src = url;
+        }
+        //local uploaded new image
+        else {
+            uploadImg.src = URL.createObjectURL(files);
+        }
 
         var uploadedImg = Konva.Image.fromURL(
             uploadImg.src,
@@ -177,6 +187,12 @@
     }
 
     window.addEventListener('load', function() {
+
+        document.querySelector('#ImgSelector button').addEventListener('click', function() {
+            //Get Images that have already been uploaded to the system
+            parseHTML("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");
+        });
+
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
 
