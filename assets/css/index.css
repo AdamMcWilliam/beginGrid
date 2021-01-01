@@ -48,6 +48,7 @@ input[type="file"] {
 
 #container canvas,
 #twitch-embed,
+#ImgSelector,
 #interface,
 #commands {
     position: absolute;
@@ -106,4 +107,13 @@ input[type="file"] {
 canvas {
     top: 8px !important;
     left: 8px !important;
+}
+
+#imgSelector {
+    background-color: red;
+    width: 300px;
+    height: 720px;
+    left: 7px;
+    overflow-y: scroll;
+    text-align: center;
 }

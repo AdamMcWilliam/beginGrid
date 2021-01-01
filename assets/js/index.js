@@ -15,8 +15,8 @@
         muted: "true",
     });
 
-    //Get Images
-    getSourceAsDOM("https://beginworld.website-us-east-1.linodeobjects.com/memes.html")
+    //Get Images that have already been uploaded to the system
+    parseHTML("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");
 
 
     function LoadImage(url, files, fileName) {

@@ -1,9 +1,58 @@
+function parseHTML(url) {
+    var imgsArray = [];
+
+    var dom = getSourceAsDOM(url);
+    //console.log(dom);
+    var images = dom.querySelectorAll("img[alt]");
+    //console.log(images);
+    //console.log(images.length);
+
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i];
+        //console.log(image);
+        imgUrl = image.attributes.src.value;
+        imgName = image.attributes.alt.value;
+
+        //create object
+        var imgsObj = {
+            name: imgName,
+            url: imgUrl
+        };
+
+        //add to array
+        imgsArray.push(imgsObj);
+    }
+
+    //console.log(imgsArray);
+
+    //add images to dom
+    placeImages(imgsArray);
+}
+
+
 function getSourceAsDOM(url) {
-    return fetch('https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=' + url)
-        .then(d => d.text())
-        .then((responseData) => {
-            console.log(responseData);
-            return responseData
-        })
-        .catch(error => console.warn(error));
+    url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send();
+    parser = new DOMParser();
+    return parser.parseFromString(xmlhttp.responseText, "text/html");
+}
+
+function placeImages(images) {
+    console.log(images);
+
+    for (var i = 0; i < images.length; i++) {
+        var url = images[i].url;
+        var name = images[i].name;
+
+        var img = document.createElement('img');
+        img.src = url;
+        img.alt = name;
+        img.width = 280;
+        img.height = 280;
+
+        document.getElementById('ImgSelector').appendChild(img);
+    }
+
 }
