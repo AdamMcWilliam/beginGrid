@@ -48,6 +48,8 @@ input[type="file"] {
 }
 
 #container canvas,
+#closedSideNav,
+.sidenav,
 #twitch-embed,
 #ImgSelector,
 #interface,
@@ -120,7 +122,6 @@ input[type="file"] {
     background-color: #737373;
     width: 300px;
     height: 720px;
-    left: 7px;
     overflow-y: scroll;
     text-align: center;
 }
@@ -159,4 +160,50 @@ input[type="file"] {
 
 #imgSelector::-webkit-scrollbar-thumb:hover {
     background: transparent;
+}
+
+#closedSideNav {
+    height: 720px;
+    width: 10px;
+    z-index: 1;
+}
+
+.closebtn {
+    z-index: 10;
+}
+
+.sidenav {
+    height: 720px;
+    width: 0;
+    z-index: 1;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#main {
+    transition: margin-left .5s;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
