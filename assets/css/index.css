@@ -1,7 +1,21 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
 body {
+    font-family: 'Roboto';
     background-color: #6441a5;
     color: #f1f1f1;
-    font-size: 18px;
+    font-size: 16px;
     background-size: 1280px 720px;
     margin: auto;
     max-width: 1280px;
@@ -166,6 +180,27 @@ input[type="file"] {
     height: 720px;
     width: 10px;
     z-index: 1;
+}
+
+#closedSideNav button {
+    font-family: 'RobotoBold';
+    color: #f1f1f1;
+    background: #b9a3e3;
+    -moz-appearance: none;
+    display: inline-block;
+    border-left: solid;
+    border-right: solid;
+    border-left: none;
+    border-bottom: solid;
+    border-bottom-color: #a47bf3;
+    border-right-color: #a47bf3;
+    border-top-color: #a47bf3;
+    border-radius: 5.4px;
+}
+
+#closedSideNav button:hover,
+button:focus {
+    outline: none;
 }
 
 .closebtn {
