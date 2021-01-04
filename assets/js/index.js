@@ -25,7 +25,6 @@
             }
 
             //dont show upload command for beginworld images
-            //!find kirbydance | !move kirbydance 811 418 | !scale kirbydance 0.43 
             if (files) {
                 document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
             } else {
