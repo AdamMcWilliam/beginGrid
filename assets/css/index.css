@@ -21,10 +21,51 @@ body {
     max-width: 1280px;
 }
 
-#githubSocials {
+#header {
     padding-top: 10px;
-    text-align: right;
     padding-bottom: 30px;
+}
+
+#jester {
+    left: 10px;
+    position: relative;
+}
+
+#jesterName {
+    display: inline-block;
+    overflow: auto;
+}
+
+#jester img {
+    width: 30px;
+}
+
+#chaosMode {
+    float: left;
+    background-color: #737373;
+    border-radius: 10px;
+    border-color: #262626;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    padding: 2px;
+}
+
+#indicator {
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+    float: right;
+    text-align: center;
+    align-items: center;
+    border-color: #262626;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#githubSocials {
+    text-align: right;
 }
 
 #interface {

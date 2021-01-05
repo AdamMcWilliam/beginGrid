@@ -25,7 +25,6 @@
             }
 
             //dont show upload command for beginworld images
-            //!find kirbydance | !move kirbydance 811 418 | !scale kirbydance 0.43 
             if (files) {
                 document.getElementById("imgCommand").innerText = imgCommand + " " + url + " " + e.target.id();
             } else {
@@ -199,6 +198,8 @@
     }
 
     window.addEventListener('load', function() {
+
+        parseModes('https://beginworld.website-us-east-1.linodeobjects.com/wtf.json');
 
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
             //Get Images that have already been uploaded to the system
