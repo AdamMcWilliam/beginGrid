@@ -199,6 +199,8 @@
 
     window.addEventListener('load', function() {
 
+        parseModes('https://beginworld.website-us-east-1.linodeobjects.com/wtf.json');
+
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
             //Get Images that have already been uploaded to the system
             parseHTML("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");

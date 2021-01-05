@@ -1,15 +1,11 @@
 function parseHTML(url) {
     var imgsArray = [];
-
     var dom = getSourceAsDOM(url);
-    //console.log(dom);
     var images = dom.querySelectorAll("img[alt]");
-    //console.log(images);
-    //console.log(images.length);
 
     for (var i = 0; i < images.length; i++) {
         var image = images[i];
-        //console.log(image);
+
         imgUrl = image.attributes.src.value;
         imgName = image.attributes.alt.value;
 
@@ -22,8 +18,6 @@ function parseHTML(url) {
         //add to array
         imgsArray.push(imgsObj);
     }
-
-    //console.log(imgsArray);
 
     //add images to dom
     placeImages(imgsArray);

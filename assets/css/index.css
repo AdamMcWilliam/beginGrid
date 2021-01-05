@@ -12,6 +12,20 @@ body {
     padding-bottom: 30px;
 }
 
+#jester {
+    left: 10px;
+    position: relative;
+}
+
+#jesterName {
+    display: inline-block;
+    overflow: auto;
+}
+
+#jester img {
+    width: 30px;
+}
+
 #chaosMode {
     float: left;
     background-color: #737373;
