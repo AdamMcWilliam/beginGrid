@@ -1,4 +1,6 @@
 function parseHTML(url) {
+    console.log("loading BeginWorld Images..");
+
     var imgsArray = [];
     var dom = getSourceAsDOM(url);
     var images = dom.querySelectorAll("img[alt]");
@@ -25,17 +27,18 @@ function parseHTML(url) {
 
 
 function getSourceAsDOM(url) {
-    console.log("loading BeginWorld Images..");
 
     url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url, false);
     xmlhttp.send();
     parser = new DOMParser();
+
     return parser.parseFromString(xmlhttp.responseText, "text/html");
 }
 
 function placeImages(images) {
+
     console.log(images);
 
     for (var i = 0; i < images.length; i++) {
@@ -55,9 +58,22 @@ function placeImages(images) {
             console.log("beginWorldImage clicked");
             console.log(this.src);
             console.log(this.alt);
+
+            var loadWheel = document.getElementById("loadOverlay");
+
+            //show load wheel
+            loadWheel.style.display = "block";
+
             LoadImage("https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + this.src, null, this.alt);
         });
 
     }
+
+    var loadWheel = document.getElementById("imgSelectorLoadOverlay");
+
+    //show load wheel
+    loadWheel.style.display = "none";
+
+
 
 }

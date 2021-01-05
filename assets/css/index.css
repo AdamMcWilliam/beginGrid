@@ -87,7 +87,8 @@ input[type="file"] {
     border-style: solid; 
 } */
 
-#container {
+#container,
+#loadOverlay {
     width: 1280px;
     height: 720px;
 }
@@ -106,6 +107,8 @@ input[type="file"] {
 #closedSideNav,
 .sidenav,
 #twitch-embed,
+.beginWheel,
+#loadOverlay,
 #ImgSelector,
 #interface,
 #commands {
@@ -166,12 +169,6 @@ input[type="file"] {
     text-align: center;
     padding-bottom: 4px;
 }
-
-
-/* canvas {
-    top: 8px !important;
-    left: 8px !important;
-} */
 
 #imgSelector {
     background-color: #737373;
@@ -281,5 +278,52 @@ button:focus {
     }
     .sidenav a {
         font-size: 18px;
+    }
+}
+
+#loadOverlay {
+    display: none;
+}
+
+#loadOverlay .beginWheel {
+    top: 25%;
+    left: 39%;
+    width: 300px;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+#imgSelectorLoadOverlay {
+    display: none;
+    width: 300px;
+    height: 720px;
+}
+
+#imgSelectorLoadOverlay .beginWheel {
+    top: 33%;
+    left: 23%;
+    width: 180px;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }

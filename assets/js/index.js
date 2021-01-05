@@ -17,6 +17,12 @@
 
     function LoadImage(url, files, fileName) {
 
+
+        var loadWheel = document.getElementById("loadOverlay");
+
+        //show load wheel
+        loadWheel.style.display = "none";
+
         function updateText(e) {
             if (url.includes(".gif")) {
                 var imgCommand = "!gif";
@@ -195,6 +201,7 @@
                 });
             }
         );
+
     }
 
     window.addEventListener('load', function() {
@@ -202,6 +209,10 @@
         parseModes('https://beginworld.website-us-east-1.linodeobjects.com/wtf.json');
 
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
+            var loadWheel = document.getElementById("imgSelectorLoadOverlay");
+            //show load wheel
+            loadWheel.style.display = "block";
+
             //Get Images that have already been uploaded to the system
             parseHTML("https://beginworld.website-us-east-1.linodeobjects.com/memes.html");
         });

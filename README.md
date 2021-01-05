@@ -20,3 +20,6 @@ Interested in how this works on the other end? Check out [Begin's project](https
 * [Twitch Embed Everything](https://dev.twitch.tv/docs/embed/everything)
 * [Twitch Embed Chat](https://dev.twitch.tv/docs/embed/chat)
 * [Imgur API](https://api.imgur.com/)
+* [Scraper API](https://www.scraperapi.com) to bypass CORS
+
+
