@@ -59,21 +59,15 @@ function placeImages(images) {
             console.log(this.src);
             console.log(this.alt);
 
-            var loadWheel = document.getElementById("loadOverlay");
-
             //show load wheel
-            loadWheel.style.display = "block";
+            document.getElementById("loadOverlay").style.display = "block";
+
+            closeNav();
 
             LoadImage("https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + this.src, null, this.alt);
         });
 
     }
 
-    var loadWheel = document.getElementById("imgSelectorLoadOverlay");
-
-    //show load wheel
-    loadWheel.style.display = "none";
-
-
-
+    document.getElementById("imgSelectorLoadOverlay").style.display = "none";
 }
