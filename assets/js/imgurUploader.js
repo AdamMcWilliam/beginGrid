@@ -26,7 +26,6 @@ function uploadImg(imgToUpload, onComplete) {
     // Response contains stringified JSON
     // Image URL available at response.data.link
     $.ajax(settings).done(function(response) {
-        console.log(JSON.parse(response));
         var json = JSON.parse(response);
         var link = json.data.link;
         onComplete(link);

@@ -164,7 +164,6 @@
                 img.on('dragmove', updateText);
 
                 layer.add(img);
-                console.log(img);
 
                 const tr = new Konva.Transformer({
                     nodes: [img],
@@ -219,8 +218,6 @@
 
                 //upload to imgur
                 const onComplete = (imgUrl) => {
-                    console.log(imgUrl);
-
                     var fileName = document.getElementById('file').value;
                     //split to just name
                     fileNameStriped = fileName.split("\\");
@@ -236,7 +233,6 @@
     });
 
     function copyDivToClipboard(elem) {
-        console.log("copying element: " + elem);
         var range = document.createRange();
         range.selectNode(document.getElementById(elem));
         window.getSelection().removeAllRanges();
@@ -265,13 +261,10 @@
         copyDivToClipboard('pipedCommands');
     });
 
-
-    /* Set the width of the side navigation to 250px */
     function openNav() {
         document.getElementById("mySidenav").style.width = "300px";
     }
 
-    /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }

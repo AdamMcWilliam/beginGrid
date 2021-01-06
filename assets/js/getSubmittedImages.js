@@ -39,8 +39,6 @@ function getSourceAsDOM(url) {
 
 function placeImages(images) {
 
-    console.log(images);
-
     for (var i = 0; i < images.length; i++) {
         var url = images[i].url;
         var name = images[i].name;
@@ -56,8 +54,6 @@ function placeImages(images) {
 
         img.addEventListener('click', function() {
             console.log("beginWorldImage clicked");
-            console.log(this.src);
-            console.log(this.alt);
 
             //show load wheel
             document.getElementById("loadOverlay").style.display = "block";
