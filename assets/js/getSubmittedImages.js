@@ -3,7 +3,7 @@ function parseHTML(url) {
 
     var imgsArray = [];
     var dom = getSourceAsDOM(url);
-    var images = dom.querySelectorAll(".flex-container figure img[alt]");
+    var images = dom.querySelectorAll("img[alt]");
 
     for (var i = 0; i < images.length; i++) {
         var image = images[i];
