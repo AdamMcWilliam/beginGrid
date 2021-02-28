@@ -1,7 +1,7 @@
 <?php
-include("creds.php");
+include_once("creds.php");
 
-$file = file_get_contents("pokejacket.png");
+$file = file_get_contents("/pokejacket.png");
 
 $url = 'https://api.imgur.com/3/image.json';
 $headers = array("Authorization: Client-ID $imgurAPI");
