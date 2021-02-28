@@ -1,5 +1,5 @@
 # BeginGrid
-[Click here](https://adammcwilliam.github.io/beginGrid/) to try it!
+[Click here](begingrid.xyz) to try it!
 
 # How to use
 1. Be signed into twitch (if you aren't you will be prompted at step 4)
