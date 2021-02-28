@@ -202,7 +202,7 @@
 
     window.addEventListener('load', function() {
 
-        parseModes('./assets/includes/php/scrapeMode.php');
+        parseModes('../assets/includes/php/scrapeMode.php');
 
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
 
@@ -210,7 +210,7 @@
             document.getElementById("imgSelectorLoadOverlay").style.display = "block";
 
             //Get Images that have already been uploaded to the system
-            parseHTML("./assets/includes/php/scrapeMemes.php");
+            parseHTML("../assets/includes/php/scrapeMemes.php");
         });
 
         document.querySelector('input[type="file"]').addEventListener('change', function() {

@@ -2,7 +2,7 @@ function uploadImg(imgToUpload, onComplete) {
     // Begin file upload
     console.log("Uploading file to Imgur..");
 
-    var apiUrl = './assets/includes/php/imgurUpload.php';
+    var apiUrl = '../assets/includes/php/imgurUpload.php';
 
     var settings = {
         async: false,
