@@ -1,7 +1,6 @@
 function getMode(url) {
     console.log("loading BeginWorld mode..");
 
-    url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url, false);
     xmlhttp.send();
