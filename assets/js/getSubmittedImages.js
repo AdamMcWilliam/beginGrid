@@ -28,7 +28,7 @@ function parseHTML(url) {
 
 function getSourceAsDOM(url) {
 
-    //url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
+    url = "https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + url;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url, false);
     xmlhttp.send();
@@ -60,7 +60,7 @@ function placeImages(images) {
 
             closeNav();
 
-            LoadImage(this.src, null, this.alt);
+            LoadImage("https://api.scraperapi.com?api_key=1cda3153c83f31258a577d486128240f&url=" + this.src, null, this.alt);
         });
 
     }
