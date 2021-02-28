@@ -1,5 +1,5 @@
 <?php
-include_once("creds.php");
+include_once("/creds.php");
 
 $url = "https://beginworld.website-us-east-1.linodeobjects.com/wtf.json";
 
