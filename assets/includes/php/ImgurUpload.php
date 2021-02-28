@@ -1,25 +1,31 @@
 <?php
 include_once("creds.php");
 
-$file = file_get_contents("/pokejacket.png");
+$filetype = explode('/',($_FILES['image']['type']));
+if ($filetype[0] !== 'image') {
+    die('Invalid image type');
+}
 
-$url = 'https://api.imgur.com/3/image.json';
-$headers = array("Authorization: Client-ID $imgurAPI");
-$pvars  = array('image' => base64_encode($file));
+$image = file_get_contents($_FILES['image']['tmp_name']);
 
-$curl = curl_init();
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
+curl_setopt($ch, CURLOPT_POST, TRUE);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array( "Authorization: Client-ID $imgurAPI" ));
+curl_setopt($ch, CURLOPT_POSTFIELDS, array( 'image' => base64_encode($image) ));
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-curl_setopt_array($curl, array(
-   CURLOPT_URL=> $url,
-   CURLOPT_TIMEOUT => 30,
-   CURLOPT_POST => 1,
-   CURLOPT_RETURNTRANSFER => 1,
-   CURLOPT_HTTPHEADER => $headers,
-   CURLOPT_POSTFIELDS => $pvars
-));
+$reply = curl_exec($ch);
 
-$json_returned = curl_exec($curl); // blank response
-echo "Result: " . $json_returned ;
+curl_close($ch);
 
-curl_close ($curl); 
+$reply = json_decode($reply);
+
+//echo "<h3>Image</h3>";
+printf($reply->data->link);
+
+
+//echo "<h3>API Debug</h3><pre>";
+//var_dump($reply);
 ?>
