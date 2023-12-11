@@ -210,12 +210,9 @@
             //show load wheel
             document.getElementById("imgSelectorLoadOverlay").style.display = "block";
 
-            const scraperAPI = '455b6f9747141efd52d4814122054b7a'; // Replace with your actual Scraper API key
-            const url = 'https://beginworld.website-us-east-1.linodeobjects.com/memes.html';
-
             const fetchData = async () => {
                 try {
-                    const response = await fetch(`http://api.scraperapi.com?api_key=${scraperAPI}&url=${url}`, {
+                    const response = await fetch(`https://beginworld.website-us-east-1.linodeobjects.com/memes.html`, {
                         method: 'GET',
                     });
                 
