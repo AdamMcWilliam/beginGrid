@@ -225,8 +225,6 @@
                 } catch (error) {
                     console.error('Error fetching data:', error.message);
                 }
-
-                return data;
             };
 
             // Example usage:
