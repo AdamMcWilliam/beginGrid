@@ -2,7 +2,8 @@ function parseHTML(url) {
     console.log("loading BeginWorld Images..");
 
     var imgsArray = [];
-    var dom = url;
+    parser = new DOMParser();
+    var dom = parser.parseFromString(xmlhttp.responseText, "text/html");
     var images = dom.querySelectorAll("img[alt]");
 
     for (var i = 0; i < images.length; i++) {
