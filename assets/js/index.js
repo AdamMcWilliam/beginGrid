@@ -212,7 +212,7 @@
 
             const fetchData = async () => {
                 try {
-                    const response = await fetch('assets/includes/php/scrapeMemes.js', {
+                    const response = await fetch('/assets/includes/php/scrapeMemes.js', {
                         method: 'GET',
                     });
             
