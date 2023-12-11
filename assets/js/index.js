@@ -221,7 +221,9 @@
                     }
                 
                     const data = await response.text();
-                    console.log(data);
+                    //Get Images that have already been uploaded to the system
+                    parseHTML(data);
+                    //console.log(data);
                 } catch (error) {
                     console.error('Error fetching data:', error.message);
                 }
@@ -231,8 +233,8 @@
             fetchData();
             
             
-            //Get Images that have already been uploaded to the system
-            parseHTML(fetchData());
+            
+            
         });
 
         document.querySelector('input[type="file"]').addEventListener('change', function() {
