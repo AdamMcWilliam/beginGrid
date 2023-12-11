@@ -3,7 +3,7 @@ function parseHTML(url) {
 
     var imgsArray = [];
     parser = new DOMParser();
-    var dom = parser.parseFromString(xmlhttp.responseText, "text/html");
+    var dom = parser.parseFromString(url, "text/html");
     var images = dom.querySelectorAll("img[alt]");
 
     for (var i = 0; i < images.length; i++) {
