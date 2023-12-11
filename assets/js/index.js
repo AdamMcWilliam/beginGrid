@@ -199,6 +199,7 @@
         );
 
     }
+    https://adammcwilliam.github.io/assets/includes/php/scrapeMemes.js
 
     window.addEventListener('load', function() {
 
@@ -211,7 +212,7 @@
 
             const fetchData = async () => {
                 try {
-                    const response = await fetch('../assets/includes/php/scrapeMemes.js', {
+                    const response = await fetch('assets/includes/php/scrapeMemes.js', {
                         method: 'GET',
                     });
             
