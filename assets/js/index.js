@@ -202,7 +202,7 @@
 
     window.addEventListener('load', function() {
 
-        parseModes('../assets/includes/php/scrapeMode.php');
+        //parseModes('../assets/includes/php/scrapeMode.php');
 
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
 
