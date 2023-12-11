@@ -209,7 +209,7 @@
             document.getElementById("imgSelectorLoadOverlay").style.display = "block";
         
             // Get Images that have already been uploaded to the system
-            parseJS("../assets/includes/js/scrapeMemes.js");
+            parseJS("../assets/includes/php/scrapeMemes.js");
         });
         
         function parseJS(filePath) {
