@@ -205,28 +205,33 @@
         //parseModes('../assets/includes/php/scrapeMode.php');
 
         document.querySelector('#ImgSelector button').addEventListener('click', function() {
-            // Show load wheel
+
+            //show load wheel
             document.getElementById("imgSelectorLoadOverlay").style.display = "block";
-        
-            // Get Images that have already been uploaded to the system
-            parseJS("../assets/includes/php/scrapeMemes.js");
+
+            const fetchData = async () => {
+                try {
+                    const response = await fetch('../assets/includes/php/scrapeMemes.js', {
+                        method: 'GET',
+                    });
+            
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+            
+                    const data = await response.text();
+                    console.log(data);
+                } catch (error) {
+                    console.error('Error fetching data:', error.message);
+                }
+
+                return data;
+            };
+            
+            
+            //Get Images that have already been uploaded to the system
+            parseHTML(fetchData());
         });
-        
-        function parseJS(filePath) {
-            // Assuming parseHTML is a function that takes a file path and parses its content
-            // Make sure parseHTML function is defined before calling this
-        
-            // Fetch the JavaScript file
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    // Assuming parseHTML is a function that takes HTML content and parses it
-                    parseHTML(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching or parsing JavaScript file:', error);
-                });
-        }
 
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
