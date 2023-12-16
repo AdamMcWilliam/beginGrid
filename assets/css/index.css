@@ -16,9 +16,9 @@ body {
     background-color: #6441a5;
     color: #f1f1f1;
     font-size: 16px;
-    background-size: 1280px 720px;
+    background-size: 1920px 1080px;
     margin: auto;
-    max-width: 1280px;
+    max-width: 1920px;
 }
 
 #header {
@@ -70,7 +70,7 @@ body {
 
 #interface {
     text-align: center;
-    width: 1280px;
+    width: 1920px;
     height: 15px;
     padding-top: 39px;
 }
@@ -89,8 +89,8 @@ input[type="file"] {
 
 #container,
 #loadOverlay {
-    width: 1280px;
-    height: 720px;
+    width: 1920px;
+    height: 1080px;
 }
 
 #coOrds {
@@ -141,12 +141,12 @@ input[type="file"] {
     border-color: #262626;
     border-width: 8px;
     border-style: solid;
-    width: 1280px;
+    width: 1920px;
 }
 
 #commands {
     background-color: #b9a3e3;
-    width: 1280px;
+    width: 1920px;
     height: 180px;
     border-radius: 8.2px;
     border-color: #737373;

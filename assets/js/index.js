@@ -1,7 +1,7 @@
     stage = new Konva.Stage({
         container: 'container',
-        width: 1600,
-        height: 1000,
+        width: 1920,
+        height: 1080,
     });
 
     layer = new Konva.Layer();
