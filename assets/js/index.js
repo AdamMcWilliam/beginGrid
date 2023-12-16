@@ -8,8 +8,8 @@
     stage.add(layer);
 
     new Twitch.Embed("twitch-embed", {
-        width: 1280,
-        height: 720,
+        width: 1920,
+        height: 1080,
         channel: "beginbot",
         layout: "video",
         muted: "true",
@@ -199,7 +199,7 @@
         );
 
     }
-    https://adammcwilliam.github.io/assets/includes/php/scrapeMemes.js
+    //https://adammcwilliam.github.io/assets/includes/php/scrapeMemes.js
 
     window.addEventListener('load', function() {
 
